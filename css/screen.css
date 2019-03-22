@@ -17,6 +17,14 @@ html {
     line-height: 1.5;
     font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
     color: #111;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+box-sizing: inherit;
+}
 }
 
 /*
@@ -25,6 +33,7 @@ html {
  *
  * Customize the background color to match your design.
  */
+
 
 ::selection {
     background: #e85e00;
@@ -161,6 +170,89 @@ a:focus {
     Creates a horizontal row that stretches the viewport and adds padding around children
 */
 
+.o-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .o-layout__item {
+        width: 100%;
+    }
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+    margin: 0 - 12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+    padding: 0 12px;
+}
+
+.o-layout--gutter-sm {}
+
+.o-layout--gutter-sm > .o-layout__item {}
+
+.o-layout--gutter-lg {}
+
+.o-layout--gutter-lg > .o-layout__item {}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-end {
+    justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+    justify-content: center;
+}
+
+.o-layout--justify-space-around {
+    justify-content: space-around;
+}
+
+.o-layout--justify-space-between {
+    justify-content: space-between;
+}
+
+.o-layout--justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+/* Vertical item alignment modifiers */
+
+.o-layout--align-start {
+    align-items: flex-start;
+}
+
+.o-layout--align-end {
+    align-items: flex-end;
+}
+
+.o-layout--align-center {
+    align-items: center;
+}
+
+.o-layout--align-baseline {
+    align-items: baseline;
+}
+
+/* Vertical content alignment modifiers. Only work if there is one than one flex item */
+
+.o-layout--align-content-start {}
+
+.o-layout--align-content-end {}
+
+.o-layout--align-content-center {}
+
+.o-layout--align-content-space-around {}
+
+.o-layout--align-content-space-between {}
+
 .o-row {
     padding: 24px 24px 0;
     display: flex;
@@ -169,40 +261,42 @@ a:focus {
 
 .o-row--primary {
     background-color: #e85e00;
-    color: white;
+    color:white;
 }
 
 .o-row--dark {
     background-color: #111;
-    color: white;
+    color:white;
 }
 
 @media (min-width: 768px) {
     .o-row--lg {
-        padding: 48px 48px 24px
+        padding: 48px 48px 24;
     }
-}
-
-/*
-    Objects: Container
-    ---
-    Creates a horizontal container that sets de global max-width
-*/
-
-.o-container {
-    max-width: 90em;
-    margin: 0 auto;
 }
 
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
 
-/*
-    Component: Component name
-    ---
-    Component description
-*/
+.c-layout-block {
+    background-color: LightGrey;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.c-layout-block--ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.o-container{
+    width: 100%;
+    max-width: 90em;
+    margin: 0 auto;
+}
 
 /*------------------------------------*\
   #UTILITIES
@@ -213,6 +307,282 @@ a:focus {
     ---
     Utility classes to put specific max widths onto elements.
 */
+
+.u-width-auto {}
+
+.u-1-of-2 {
+    width: 50%;
+}
+
+.u-1-of-3 {
+    width: calc(100%/3);
+}
+
+.u-2-of-3 {
+    width: calc(100%/3 *2);
+}
+
+.u-1-of-4 {
+    width: calc(100%/4);
+}
+
+.u-3-of-4 {
+    width: calc(100%/4 * 3);
+}
+
+.u-1-of-5 {
+    width: calc(100%/5);
+}
+
+.u-2-of-5 {
+    width: calc(100%/5 * 2);
+}
+
+.u-3-of-5 {
+    width: calc(100%/5 * 3);
+}
+
+.u-4-of-5 {
+    width: calc(100%/5 * 4);
+}
+
+.u-1-of-6 {
+    width: calc(100%/6);
+}
+
+.u-5-of-6 {
+    width: calc(100%/6 * 5);
+}
+
+@media (min-width: 576px) {
+    .u-width-auto {}
+
+    .u-1-of-2-bp1
+     {
+        width: 50%;
+    }
+
+    .u-1-of-3-bp1
+     {
+        width: calc(100%/3);
+    }
+
+    .u-2-of-3-bp1
+     {
+        width: calc(100%/3 *2);
+    }
+
+    .u-1-of-4-bp1
+     {
+        width: calc(100%/4);
+    }
+
+    .u-3-of-4-bp1
+     {
+        width: calc(100%/4 * 3);
+    }
+
+    .u-1-of-5-bp1
+     {
+        width: calc(100%/5);
+    }
+
+    .u-2-of-5-bp1
+     {
+        width: calc(100%/5 * 2);
+    }
+
+    .u-3-of-5-bp1
+     {
+        width: calc(100%/5 * 3);
+    }
+
+    .u-4-of-5-bp1
+     {
+        width: calc(100%/5 * 4);
+    }
+
+    .u-1-of-6-bp1
+     {
+        width: calc(100%/6);
+    }
+
+    .u-5-of-6-bp1
+     {
+        width: calc(100%/6 * 5);
+    }
+}
+
+@media (min-width: 768px) {
+    .u-1-of-2-bp2
+     {
+        width: 50%;
+    }
+
+    .u-1-of-3-bp2
+     {
+        width: calc(100%/3);
+    }
+
+    .u-2-of-3-bp2
+     {
+        width: calc(100%/3 *2);
+    }
+
+    .u-1-of-4-bp2
+     {
+        width: calc(100%/4);
+    }
+
+    .u-3-of-4-bp2
+     {
+        width: calc(100%/4 * 3);
+    }
+
+    .u-1-of-5-bp2
+     {
+        width: calc(100%/5);
+    }
+
+    .u-2-of-5-bp2
+     {
+        width: calc(100%/5 * 2);
+    }
+
+    .u-3-of-5-bp2
+     {
+        width: calc(100%/5 * 3);
+    }
+
+    .u-4-of-5-bp2
+     {
+        width: calc(100%/5 * 4);
+    }
+
+    .u-1-of-6-bp2
+     {
+        width: calc(100%/6);
+    }
+
+    .u-5-of-6-bp2
+     {
+        width: calc(100%/6 * 5);
+    }
+}
+
+@media (min-width: 992px) {
+    .u-1-of-2-bp3
+     {
+        width: 50%;
+    }
+
+    .u-1-of-3-bp3
+     {
+        width: calc(100%/3);
+    }
+
+    .u-2-of-3-bp3
+     {
+        width: calc(100%/3 *2);
+    }
+
+    .u-1-of-4-bp3
+     {
+        width: calc(100%/4);
+    }
+
+    .u-3-of-4-bp3
+     {
+        width: calc(100%/4 * 3);
+    }
+
+    .u-1-of-5-bp3
+     {
+        width: calc(100%/5);
+    }
+
+    .u-2-of-5-bp3
+     {
+        width: calc(100%/5 * 2);
+    }
+
+    .u-3-of-5-bp3
+     {
+        width: calc(100%/5 * 3);
+    }
+
+    .u-4-of-5-bp3
+     {
+        width: calc(100%/5 * 4);
+    }
+
+    .u-1-of-6-bp3
+     {
+        width: calc(100%/6);
+    }
+
+    .u-5-of-6-bp3
+     {
+        width: calc(100%/6 * 5);
+    }
+}
+
+@media (min-width: 1200px) {
+    .u-1-of-2-bp4
+     {
+        width: 50%;
+    }
+
+    .u-1-of-3-bp4
+     {
+        width: calc(100%/3);
+    }
+
+    .u-2-of-3-bp4
+     {
+        width: calc(100%/3 *2);
+    }
+
+    .u-1-of-4-bp4
+     {
+        width: calc(100%/4);
+    }
+
+    .u-3-of-4-bp4
+     {
+        width: calc(100%/4 * 3);
+    }
+
+    .u-1-of-5-bp4
+     {
+        width: calc(100%/5);
+    }
+
+    .u-2-of-5-bp4
+     {
+        width: calc(100%/5 * 2);
+    }
+
+    .u-3-of-5-bp4
+     {
+        width: calc(100%/5 * 3);
+    }
+
+    .u-4-of-5-bp4
+     {
+        width: calc(100%/5 * 4);
+    }
+
+    .u-1-of-6-bp4
+     {
+        width: calc(100%/6);
+    }
+
+    .u-5-of-6-bp4
+     {
+        width: calc(100%/6 * 5);
+    }
+}
 
 .u-max-width-sm {
     max-width: 36em;
@@ -298,7 +668,7 @@ a:focus {
     }
     /*
      * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
+     * or use the javascript: pseudo protocol
      */
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
